@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Head</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/webjars/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/head.css}" rel="stylesheet">
+</head>
+<body>
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3 mb-4
+w-100 border-bottom" th:fragment="head">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
+       th:text="${session.loginName}" th:if="#{!strings.isEmpty(session.loginName)}">
+    </a>
+
+    <ul class="nav col-12 col-md-3 mb-2 justify-content-center mb-md-0 px-md-2">
+        <li><a href="#" class="nav-link px-2 link-dark">商城</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">购物车</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">订单详情</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">待修改1</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">待修改2</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-danger me-2">注销</button>
+        <button type="button" class="btn btn-outline-primary me-2">注册</button>
+        <button type="button" class="btn btn-primary">登录</button>
+    </div>
+</header>
+</body>
+</html>

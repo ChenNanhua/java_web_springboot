@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap首页</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.0/css/bootstrap.min.css" />
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header th:replace="~{fragment/userHead::head}"></header>
+<div class="container"><br/>
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <h3>index首页</h3>Hello, <strong>springboot and bootstrap！！！</strong>
+    </div>
+</div>
+</body>
+</html>
