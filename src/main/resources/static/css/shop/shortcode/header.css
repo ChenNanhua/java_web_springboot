@@ -366,14 +366,14 @@ NOTE: This is Header style file. All Header related style included in this file.
 }
 /* ============ total-cart ============= */
 .total-cart {
-  padding: 20px 0;
+  padding: 0 0;
   transition: all 0.3s ease 0s;
 }
 .sticky .total-cart {
   padding: 0;
 }
 .total-cart-in {
-  padding: 10px 0 25px;
+  padding: 0 0 0;
   position: relative;
   transition: all 0.3s ease 0s;
 }
@@ -385,7 +385,7 @@ NOTE: This is Header style file. All Header related style included in this file.
   color: #666666;
   display: block;
   line-height: 20px;
-  padding-left: 20px;
+  padding: 0 10px;
   text-align: center;
 }
 .total-cart-in:hover .cart-toggler > a {

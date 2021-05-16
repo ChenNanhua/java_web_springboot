@@ -500,7 +500,7 @@ hr {
 }
 
 .total-cart {
-  padding: 20px 0 0;
+  padding: 0 0 0;
 }
 .sticky .total-cart {
   padding: 20px 0 0;
@@ -644,15 +644,15 @@ p {
 /*total-cart*/
 .total-cart {
   margin-right: 15px;
-  padding: 14px 0 0;
+  padding: 0 0 0;
 }
-.sticky .total-cart {
+.sticky{
   padding: 14px 0 0;
 }
 .total-cart-in {
-  padding: 0 0 12px;
+  padding: 0 0 0;
 }
-.sticky .total-cart-in {
+.sticky{
   padding: 0 0 12px;
 }
 .top-cart-inner {

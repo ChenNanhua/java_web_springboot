@@ -80,9 +80,9 @@ a,
   transition: all 0.3s ease-out 0s;
 }
 .btn {
-  border-radius: 0px;
+  border-radius: 0;
   font-size: 14px;
-  padding: 0px 15px;
+  padding: 0 15px;
   height: 30px;
   line-height: 30px;
 }
@@ -794,7 +794,7 @@ textarea:focus {
 /*************************
   11. quick view (modal)
 *************************/
-#productModal .modal-dialog {
+.productModal .modal-dialog {
   margin: 5% auto;
   max-width: 96%;
   min-height: 300px;
@@ -804,18 +804,18 @@ textarea:focus {
 #quickview-wrapper .modal-content {
   border-radius: 0;
 }
-#productModal .modal-header {
+.productModal .modal-header {
   border: 0 none;
   padding: 0;
 }
-#productModal button.close {
+.productModal button.close {
   position: absolute;
   right: 10px;
   top: 10px;
   transition: all 0.3s ease 0s;
   z-index: 2;
 }
-#productModal button.close span {
+.productModal button.close span {
   border: 1px solid #909295;
   border-radius: 60px;
   color: #909295;
@@ -826,7 +826,7 @@ textarea:focus {
   text-align: center;
   width: 30px;
 }
-#productModal button.close:hover {
+.productModal button.close:hover {
   opacity: 1;
 }
 .modal-product .product-images {

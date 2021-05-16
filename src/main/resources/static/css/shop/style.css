@@ -711,7 +711,7 @@ transform: scale(1);
 ------------------------------------- */
 .breadcrumbs-section {}
 .breadcrumbs {
-  background: #f6f6f6 url("img/breadcrumb/1.png") no-repeat scroll center center; 
+  background: #f6f6f6 url("/img/breadcrumb/1.png") no-repeat scroll center center;
 }
 .overlay-bg { 
   position: relative;
@@ -813,7 +813,7 @@ transform: scale(1);
     9.3 Shop List
 ------------------------------------- */
  .shop-list.product-item {
-  background: #f6f6f6 none repeat scroll 0 0;
+  background: #FFFFFF none repeat scroll 0 0;
   overflow: hidden;
 }
 .shop-list .product-img {
