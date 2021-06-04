@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>购买成功！</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- All CSS Files -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" th:href="@{css/shop/bootstrap.min.css}">
+    <!-- Nivo-slider css -->
+    <link rel="stylesheet" th:href="@{lib/css/nivo-slider.css}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" th:href="@{css/shop/core.css}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" th:href="@{css/shop/shortcode/shortcodes.css}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" th:href="@{css/shop/style.css}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" th:href="@{css/shop/responsive.css}">
+    <!-- User style -->
+    <link rel="stylesheet" th:href="@{css/shop/custom.css}">
+    <!-- Style customizer (Remove these two lines please) -->
+    <link rel="stylesheet" th:href="@{css/shop/style-customizer.css}">
+    <!-- Modernizr JS -->
+    <script th:src="@{js/shop/vendor/modernizr-2.8.3.min.js}"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Body main wrapper start -->
+<div class="wrapper">
+    <!-- BREADCRUMBS SETCTION START 导航栏二-->
+    <header class="breadcrumbs-section plr-200 mb-80">
+        <div class="breadcrumbs overlay-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="breadcrumbs-inner">
+                            <h1 class="breadcrumbs-title" th:text="${
+                            '购买成功!  '+'收货地址为:'+address}">
+                            </h1>
+                            <ul class="breadcrumb-list">
+                                <li><a href="index.html">返回商城界面</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- BREADCRUMBS SETCTION END -->
+
+    <!-- Start page content 主界面-->
+    <div id="page-content" class="page-wrapper">
+        <!-- SHOP SECTION START -->
+        <div class="shop-section mb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-sm-12" style="width: 100%">
+                        <div class="shop-content">
+                            <!-- Tab Content start -->
+                            <div class="tab-content">
+                                <!-- list-view 商品展示栏-->
+                                <div role="tabpanel" class="tab-pane active" id="list-view">
+                                    <div class="row">
+                                        <!-- product-item start -->
+                                        <div class="col-md-12" th:each="phone:${shopCarPhones}">
+                                            <div class="shop-list product-item box-shadow">
+                                                <div class="product-img" style="width:27%">
+                                                    <a href="#">
+                                                        <img th:src="${'img/'+phone.getName()+'.jpg'}" alt="手机图片展示">
+                                                    </a>
+                                                </div>
+                                                <div class="product-info" style="width:73%">
+                                                    <div class="clearfix">
+                                                        <h3 class="product-title f-left" th:text="${phone.getName()}">
+                                                            手机名字</h3>
+                                                    </div>
+                                                    <h3 class="pro-price"
+                                                        th:text="${'￥ '+ phone.getPrice()*phone.getNumber()}">总价</h3>
+                                                    <h6 class="brand-name mt-30"
+                                                        th:text="${'数量：'+phone.getNumber()}">数量</h6>
+                                                    <p th:text="${phone.getType()}"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- product-item end -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab Content end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SHOP SECTION END -->
+    </div>
+    <!-- End page content -->
+
+</div>
+<!-- Body main wrapper end -->
+
+
+<!-- Placed JS at the end of the document so the pages load faster -->
+<script th:src="@{js/shop/vendor/jquery-3.1.1.min.js}"></script>
+<!-- Bootstrap framework js -->
+<script th:src="@{js/shop/bootstrap.min.js}"></script>
+<!-- jquery.nivo.slider js -->
+<script th:src="@{lib/js/jquery.nivo.slider.js}"></script>
+<!-- All js plugins included in this file. -->
+<script th:src="@{js/shop/plugins.js}"></script>
+<!-- Main js file that contents all jQuery plugins activation. -->
+<script th:src="@{js/shop/main.js}"></script>
+</body>
+</html>

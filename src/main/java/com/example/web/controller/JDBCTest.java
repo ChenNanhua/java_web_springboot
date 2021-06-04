@@ -22,7 +22,7 @@ public class JDBCTest {
     }
     //选择要查询的数据库
     public String selectTable(String table) {
-        return "select * from " + table + " ";
+        return "SELECT * FROM " + table + " ";
     }
     //select全部
     public List<Map<String, Object>> selectAll(String table) {
@@ -32,13 +32,13 @@ public class JDBCTest {
     }
 
     public List<Map<String, Object>> select(String table, int id) {
-        String sql = selectTable(table) + "where ?Id = ?";
+        String sql = selectTable(table) + "WHERE ?Id = ?";
         return jdbcTemplate.queryForList(sql,table,id);
     }
 
     //从数据库以Map<String,Object>的形式查询数据
     public List<Map<String,Object>> selectMap(){
-        String sql = "select * from user where userId = ?";
+        String sql = "SELECT * FROM user WHERE userId = ?";
         List<Map<String,Object>> maps = jdbcTemplate.queryForList(sql,1);
         System.out.println(maps.get(0).get("name"));
         System.out.println(maps.get(0));
@@ -47,7 +47,7 @@ public class JDBCTest {
 
     //从数据库以类的形式查询数据
     public List<User> selectClass(){
-        String sql = "select * from user where userId > ?";
+        String sql = "SELECT * FROM user WHERE userId > ?";
         List<User> lists = jdbcTemplate.query(sql,new Object[]{0},new BeanPropertyRowMapper<>(User.class));
         return lists;
     }

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <!-- Title -->
+    <title>商品日志</title>
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/icomoon/style.css" rel="stylesheet">
+    <link href="plugins/uniform/css/default.css" rel="stylesheet"/>
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet"/>
+    <link href="plugins/nvd3/nv.d3.min.css" rel="stylesheet">
+
+    <link href="plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Theme Styles -->
+    <link href="css/seller/ecaps.min.css" rel="stylesheet">
+    <link href="css/seller/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!-- Page Container -->
+<div class="page-container">
+    <!--侧边栏 Page Sidebar -->
+    <div class="page-sidebar">
+        <a class="logo-box" th:href="@{/rootManage}">
+            <span>后台管理</span>
+            <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
+            <i class="icon-close" id="sidebar-toggle-button-close"></i>
+        </a>
+        <div class="page-sidebar-inner">
+            <div class="page-sidebar-menu">
+                <ul class="accordion-menu">
+                    <li>
+                        <a th:href="@{/rootManage}">
+                            <i class="menu-icon icon-home4"></i><span>管理目录</span>
+                        </a>
+                    </li>
+                    <li class="active-page">
+                        <a th:href="@{/rootRecord}">
+                            <i class="menu-icon fa-bar-chart"></i><span>销售情况</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/rootBigData}">
+                            <i class="menu-icon icon-inbox"></i><span>大数据</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /Page Sidebar -->
+    <!--右边界面 Page Content -->
+    <div class="page-content">
+        <!--导航栏 Page Header -->
+        <div class="page-header">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- 导航栏 Collect the nav links, forms, and other content for toggling-->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <!--导航栏左边的最大化和隐藏侧边栏-->
+                        <ul class="nav navbar-nav">
+                            <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i
+                                    class="fa fa-bars"></i></a></li>
+                            <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a>
+                            </li>
+                        </ul>
+                        <!--导航栏右边-->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li style="padding-right: 15px">
+                                <h5 th:text="${rootName}">已登录root名字</h5>
+                            </li>
+                            <li>
+                                <a th:href="@{logout}" style="padding: 0">
+                                    <button class="btn btn-danger">注销</button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div><!-- /Page Header -->
+        <!--主要内容 Page Inner -->
+        <div class="page-inner">
+            <!--标题-->
+            <div class="page-title">
+                <h3 class="breadcrumb-header">商品浏览/购买情况</h3>
+            </div>
+            <!--主要内容-->
+            <div id="main-wrapper">
+                <div class="row">
+                    <!--总的销售情况查询-->
+                    <div class="col-md-12">
+                        <!--chart展示-->
+                        <div class="panel panel-white col-md-8">
+                            <div class="panel-body">
+                                <div class="panel-heading clearfix">
+                                    <h4 class="panel-title">手机销售情况:</h4>
+                                </div>
+                                <canvas id="chart2"></canvas>
+                            </div>
+                        </div>
+                        <br>
+                        <!--展示ID对照表-->
+                        <div class="col-md-4">
+                            <!--展示商品信息-->
+                            <div class="panel panel-white">
+                                <div class="panel-heading clearfix">
+                                    <h4 class="panel-title">ID对照表</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <!--id="example"-->
+                                        <table id="example2" class="display table"
+                                               style="width: 100%; cellspacing: 0;">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>手机名</th>
+                                                <th>类型</th>
+                                            </tr>
+                                            </thead>
+                                            <tfoot>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>手机名</th>
+                                                <th>类型</th>
+                                            </tr>
+                                            </tfoot>
+                                            <tbody>
+                                            <tr th:each="phone:${phones}">
+                                                <td th:text="${phone.getPhoneId()}"></td>
+                                                <td th:text="${phone.getName()}"></td>
+                                                <td th:text="${phone.getType()}"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--展示用户浏览记录-->
+                    <div class="col-md-12">
+                        <div class="panel panel-white">
+                            <div class="panel-heading clearfix">
+                                <h4 class="panel-title">浏览记录</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <!--id="example"-->
+                                    <table id="example1" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                        <tr>
+                                            <th>用户名</th>
+                                            <th>手机名</th>
+                                            <th>类型</th>
+                                            <th>品牌</th>
+                                            <th>浏览时长</th>
+                                            <th>日期</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>用户名</th>
+                                            <th>手机名</th>
+                                            <th>类型</th>
+                                            <th>品牌</th>
+                                            <th>浏览时长</th>
+                                            <th>日期</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        <tr th:each="recentView:${recentViews}">
+                                            <td th:text="${recentView.get('userName')}"></td>
+                                            <td th:text="${recentView.get('phoneName')}"></td>
+                                            <td th:text="${recentView.get('type')}"></td>
+                                            <td th:text="${recentView.get('brandName')}"></td>
+                                            <td th:text="${recentView.get('second')}"></td>
+                                            <td th:text="${recentView.get('date')}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--展示用户购买记录-->
+                    <div class="col-md-12">
+                        <div class="panel panel-white">
+                            <div class="panel-heading clearfix">
+                                <h4 class="panel-title">购买记录</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <!--id="example"-->
+                                    <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                        <tr>
+                                            <th>用户名</th>
+                                            <th>手机名</th>
+                                            <th>类型</th>
+                                            <th>品牌</th>
+                                            <th>数量</th>
+                                            <th>日期</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>用户名</th>
+                                            <th>手机名</th>
+                                            <th>类型</th>
+                                            <th>品牌</th>
+                                            <th>数量</th>
+                                            <th>日期</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        <tr th:each="orderList:${orderLists}">
+                                            <td th:text="${orderList.get('userName')}"></td>
+                                            <td th:text="${orderList.get('phoneName')}"></td>
+                                            <td th:text="${orderList.get('type')}"></td>
+                                            <td th:text="${orderList.get('brandName')}"></td>
+                                            <td th:text="${orderList.get('number')}"></td>
+                                            <td th:text="${orderList.get('date')}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--展示单个产品的销售统计-->
+                    <div class="col-md-12">
+                        <div class="panel panel-white">
+                            <div class="panel-heading clearfix">
+                                <h4 class="panel-title">每款手机的销售情况</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <!--id="example"-->
+                                    <table id="example3" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <thead>
+                                        <tr>
+                                            <th>手机名</th>
+                                            <th>类型</th>
+                                            <th>数量</th>
+                                            <th>总销售额</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>手机名</th>
+                                            <th>类型</th>
+                                            <th>数量</th>
+                                            <th>总销售额</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        <tr th:each="phoneSell:${phoneSells}">
+                                            <td th:text="${phoneSell.get('phoneName')}"></td>
+                                            <td th:text="${phoneSell.get('type')}"></td>
+                                            <td th:text="${phoneSell.get('number')}"></td>
+                                            <td th:text="${'￥'+phoneSell.get('price')}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Row -->
+            </div>
+            <!-- Main Wrapper End-->
+        </div>
+        <!-- /Page Inner -->
+    </div><!-- /Page Content -->
+</div><!-- /Page Container -->
+
+
+<!-- Javascripts -->
+<script src="plugins/jquery/jquery-3.1.0.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="plugins/uniform/js/jquery.uniform.standalone.js"></script>
+<script src="plugins/switchery/switchery.min.js"></script>
+<script src="plugins/chartjs/chart.min.js"></script>
+<script src="plugins/d3/d3.min.js"></script>
+<script src="plugins/nvd3/nv.d3.min.js"></script>
+<script src="plugins/flot/jquery.flot.min.js"></script>
+<script src="plugins/flot/jquery.flot.time.min.js"></script>
+<script src="plugins/flot/jquery.flot.symbol.min.js"></script>
+<script src="plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="js/seller/ecaps.min.js"></script>
+<script src="js/seller/pages/chart-root.js"></script>
+
+<script src="plugins/datatables/js/jquery.datatables.min.js"></script>
+<script src="js/seller/pages/table-data.js"></script>
+</body>
+</html>

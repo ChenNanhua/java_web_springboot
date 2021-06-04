@@ -476,7 +476,7 @@ NOTE: This is Header style file. All Header related style included in this file.
 }
 .cart-info p > span {
   display: inline-block;
-  width: 56px;
+  width: 175px;
 }
 .cart-info span strong {
   float: right;

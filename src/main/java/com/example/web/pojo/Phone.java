@@ -8,10 +8,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Phone {
-    private Integer phoneId;
-    private String name;
-    private String brandName;
-    private String type;
-    private Integer stock;
-    private Integer price;
+    public Phone(Phone phone){
+        this.brandName = phone.getBrandName();
+        this.name = phone.getName();
+        this.phoneId = phone.getPhoneId();
+        this.price = phone.getPrice();
+        this.stock = phone.getStock();
+        this.type = phone.getType();
+    }
+    protected Integer phoneId;
+    protected String name;
+    protected String brandName;
+    protected String type;
+    protected Integer stock;
+    protected Integer price;
 }

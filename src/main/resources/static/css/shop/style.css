@@ -77,7 +77,9 @@
 /*----------------------------------------
   5. Google Fonts
 ----------------------------------------*/
-@import 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Roboto:400,500,700';
+/* 将网络资源变成本地资源 */
+/*@import 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Roboto:400,500,700';*/
+@import "family=Raleway.css";
 
 
 
@@ -135,7 +137,7 @@
 .product-title {
   color: #434343;
   font-family: "Raleway",sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
   overflow: hidden;
@@ -754,7 +756,6 @@ transform: scale(1);
   text-transform: uppercase;
 }
 .breadcrumb-list > li::before {
-  content: "_";
   left: 0;
   color: #666666; 
   transition: all 0.3s ease 0s;
