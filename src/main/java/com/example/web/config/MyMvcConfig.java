@@ -15,19 +15,19 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/index.html").setViewName("index");
         //商城
-        registry.addViewController("/shop").setViewName("/shop");
-        registry.addViewController("/settle").setViewName("/settle");
-        registry.addViewController("/orderList").setViewName("/orderList");
+        registry.addViewController("/shop").setViewName("shop");
+        registry.addViewController("/settle").setViewName("settle");
+        registry.addViewController("/orderList").setViewName("orderList");
         //登录/注册
-        registry.addViewController("/login").setViewName("/user/login");
-        registry.addViewController("/register").setViewName("/user/register");
+        registry.addViewController("/login").setViewName("user/login");
+        registry.addViewController("/register").setViewName("user/register");
         //卖家
-        registry.addViewController("/sellerManage").setViewName("/seller/manage");
-        registry.addViewController("/sellerRecord").setViewName("/seller/record");
+        registry.addViewController("/sellerManage").setViewName("seller/manage");
+        registry.addViewController("/sellerRecord").setViewName("seller/record");
         //root
-        registry.addViewController("/rootManage").setViewName("/root/manage");
-        registry.addViewController("/rootRecord").setViewName("/root/record");
-        registry.addViewController("/rootBigData").setViewName("/root/bigData");
+        registry.addViewController("/rootManage").setViewName("root/manage");
+        registry.addViewController("/rootRecord").setViewName("root/record");
+        registry.addViewController("/rootBigData").setViewName("root/bigData");
     }
 
     @Override

@@ -5,6 +5,7 @@
     <groupId>com.example</groupId>
     <artifactId>web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>  <!--打包成jar包-->
     <name>web</name>
     <description>web project for Spring Boot</description>
 

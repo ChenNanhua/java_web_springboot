@@ -38,7 +38,7 @@ public class RootManage {
         String sqlPhone = "SELECT * FROM phone";
         phones = jdbcTemplate.query(sqlPhone, new Object[]{}, new BeanPropertyRowMapper<>(Phone.class));
         model.addAttribute("phones", phones);
-        return "/root/manage";
+        return "root/manage";
     }
 
     @GetMapping("/rootManageAdd")

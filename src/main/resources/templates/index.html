@@ -199,10 +199,6 @@
                                                     <p th:text="${phone.getType()}"></p>
                                                     <ul class="action-button">
                                                         <li>
-                                                            <a href="#" title="Wishlist"><i
-                                                                    class="zmdi zmdi-favorite"></i></a>
-                                                        </li>
-                                                        <li>
                                                             <a th:id="${phone.getPhoneId()}"
                                                                th:data-target="${'#productModal'+phone.getPhoneId()}"
                                                                href="#" data-toggle="modal" title="详细信息">

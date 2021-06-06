@@ -51,6 +51,6 @@ public class RootBigData {
                 " join phone p on p.phoneId = c.phoneId";
         List<Map<String,Object>> saleWrong = jdbcTemplate.queryForList(sql2);
         model.addAttribute("salesWrong",saleWrong);
-        return "/root/bigData";
+        return "root/bigData";
     }
 }
